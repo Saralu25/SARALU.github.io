@@ -69,7 +69,8 @@ header {
   color: #333;
 }
 
-/* 2) Video full screen */
+
+/* 2) Video full screen - ocultar controles */
 .video-intro {
   position: relative;
   width: 100%;
@@ -82,7 +83,22 @@ header {
   height: auto;
   object-fit: contain;
   display: block;
+  outline: none;
 }
+
+/* Ocultar controles en diferentes navegadores */
+.video-cover::-webkit-media-controls {
+  display: none !important;
+}
+
+.video-cover::-webkit-media-controls-start-playback-button {
+  display: none !important;
+}
+
+.video-cover::-webkit-media-controls-panel {
+  display: none !important;
+}
+
 
 /* 3) Carrusel / riel */
 .slider {
@@ -115,15 +131,16 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: visible;
   max-width: 1000px;
   margin: 40px auto;
-  padding: 0 50px;
+  padding: 0 60px;
+  overflow: hidden;
 }
 
 .carrusel {
+  width: 100%;
   overflow: hidden;
-  width: 90%;
+  position: relative;
 }
 
 .carrusel-inner {
@@ -131,6 +148,7 @@ header {
   transition: transform 0.5s ease;
   gap: 20px;
   padding: 10px 0;
+  justify-content: center;
 }
 
 .slide {
@@ -140,16 +158,20 @@ header {
   overflow: hidden;
   position: relative;
   flex-shrink: 0;
-  transform: scale(0.9);
+  transform: scale(0.8);
   opacity: 0.5;
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  transition: all 0.4s ease;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .slide.active {
-  transform: scale(1.1);
+  transform: scale(1);
   opacity: 1;
-  z-index: 2;
+  z-index: 3;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
 .imagen-con-titulo {
@@ -230,12 +252,15 @@ footer {
   transform: translateY(-50%);
   z-index: 2;
   border-radius: 10px;
-  transition: background 0.3s;
+  transition: all 0.3s;
   user-select: none;
+  width: auto;
+  height: auto;
 }
 
 .flecha:hover {
   background: rgba(0, 0, 0, 0.6);
+  transform: translateY(-50%) scale(1.1);
 }
 
 .flecha.izq {
@@ -287,40 +312,37 @@ footer {
   /* Carrusel principal */
   .catalogo-carrusel {
     margin: 20px auto;
+    padding: 0 50px;
     overflow: hidden;
-    padding: 0 40px;
-  }
-  
-  .carrusel {
-    width: 100%;
-    padding: 0;
   }
   
   .carrusel-inner {
-    gap: 5px;
+    gap: 10px;
     padding: 5px 0;
   }
   
   .slide {
-    min-width: 70vw;
-    height: 40vh;
+    min-width: 80vw;
+    height: 50vh;
     transform: scale(0.85);
+    opacity: 0.6;
   }
   
   .slide.active {
     transform: scale(1);
+    opacity: 1;
   }
   
   .titulo {
-    font-size: 12px;
-    padding: 8px 3px;
+    font-size: 14px;
+    padding: 8px 4px;
   }
   
   /* Flechas */
   .flecha {
-    font-size: 20px;
-    padding: 5px 8px;
-    border-radius: 5px;
+    font-size: 24px;
+    padding: 8px 12px;
+    border-radius: 8px;
   }
   
   .flecha.izq {
@@ -351,8 +373,24 @@ footer {
 
 /* Para pantallas muy pequeñas */
 @media (max-width: 480px) {
+  .catalogo-carrusel {
+    padding: 0 40px;
+    margin: 15px auto;
+  }
+  
   .slide {
-    height: 35vh;
+    min-width: 85vw;
+    height: 45vh;
+  }
+  
+  .titulo {
+    font-size: 12px;
+    padding: 6px 3px;
+  }
+  
+  .flecha {
+    font-size: 20px;
+    padding: 6px 10px;
   }
   
   .titulo-principal {
@@ -361,9 +399,5 @@ footer {
   
   .subtitulo {
     font-size: 14px;
-  }
-  
-  .catalogo-carrusel {
-    padding: 0 30px;
   }
 }
