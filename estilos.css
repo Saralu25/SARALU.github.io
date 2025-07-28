@@ -1,19 +1,19 @@
 /* Estilo base */
-
 * {
   box-sizing: border-box;
 }
 
 html, body {
-  overflow-x: hidden; /* 🔒 evita el scroll horizontal */
+  overflow-x: hidden;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
 }
-
 
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
   color: #111;
+  line-height: 1.6;
 }
 
 /* 1) Header: logo y títulos */
@@ -33,8 +33,6 @@ header {
   border-radius: 16px;
   animation: combinedMotion 3.5s ease-in-out infinite;
 }
-
-
 
 /* Animación personalizada */
 @keyframes combinedMotion {
@@ -58,8 +56,6 @@ header {
   }
 }
 
-
-
 .titulo-principal {
   font-style: italic;
   color: #d4af37; /* dorado */
@@ -71,30 +67,6 @@ header {
   font-size: 20px;
   margin-top: 10px;
   color: #333;
-}
-
-
-@media (max-width: 768px) {
-  .logo {
-    height: 80px;
-  }
-
-  .titulo-principal {
-    font-size: 24px;
-  }
-
-  .subtitulo {
-    font-size: 16px;
-  }
-
-  .slide-track img {
-    margin: 0 30px;
-    height: 40px;
-  }
-
-  .contacto {
-    padding: 20px 10px;
-  }
 }
 
 /* 2) Video full screen */
@@ -111,10 +83,6 @@ header {
   object-fit: contain;
   display: block;
 }
-
-
-
-
 
 /* 3) Carrusel / riel */
 .slider {
@@ -142,31 +110,27 @@ header {
 }
 
 /* 4) Catálogo tipo libro (Turn.js) */
-
 .catalogo-carrusel {
   position: relative;
-}
-
-.catalogo-carrusel {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: visible; /* <-- antes era hidden */
+  overflow: visible;
   max-width: 1000px;
   margin: 40px auto;
-  position: relative;
+  padding: 0 50px;
 }
 
 .carrusel {
-  overflow: hidden; /* cambia esto */
+  overflow: hidden;
   width: 90%;
 }
-
 
 .carrusel-inner {
   display: flex;
   transition: transform 0.5s ease;
   gap: 20px;
+  padding: 10px 0;
 }
 
 .slide {
@@ -185,7 +149,7 @@ header {
 .slide.active {
   transform: scale(1.1);
   opacity: 1;
-  z-index: 2;  /* Asegura que la imagen activa esté encima */
+  z-index: 2;
 }
 
 .imagen-con-titulo {
@@ -205,7 +169,7 @@ header {
   position: absolute;
   bottom: 0;
   width: 100%;
-  background: rgba(100, 100, 100, 0.7); /* gris más oscuro para mejor contraste */
+  background: rgba(100, 100, 100, 0.7);
   color: white;
   text-align: center;
   font-weight: bold;
@@ -213,7 +177,6 @@ header {
   padding: 10px 5px;
   box-sizing: border-box;
 }
-
 
 #flipbook .page {
   background: #fff;
@@ -233,9 +196,17 @@ header {
   background: #f5f5f5;
 }
 
+.contacto h2 {
+  margin-top: 0;
+}
+
 .contacto a {
   color: #007bff;
   text-decoration: none;
+}
+
+.contacto a:hover {
+  text-decoration: underline;
 }
 
 footer {
@@ -246,6 +217,7 @@ footer {
   font-size: 14px;
 }
 
+/* Flechas del carrusel */
 .flecha {
   background: rgba(0, 0, 0, 0.4);
   color: white;
@@ -253,50 +225,145 @@ footer {
   border: none;
   padding: 10px 15px;
   cursor: pointer;
-  position: relative;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 2;
   border-radius: 10px;
   transition: background 0.3s;
+  user-select: none;
 }
 
 .flecha:hover {
   background: rgba(0, 0, 0, 0.6);
 }
 
-
-
 .flecha.izq {
-  position: absolute;
   left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 .flecha.der {
-  position: absolute;
   right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
-
+/* === ESTILOS PARA MÓVILES === */
 @media (max-width: 768px) {
-  .carrusel-inner {
-    gap: 10px;
+  /* Header responsive */
+  header {
+    padding: 20px 10px 15px;
   }
-
-  .slide {
-    min-width: 220px;
-    height: 300px;
+  
+  .logo {
+    height: 80px;
+    margin-bottom: 10px;
   }
-
-  .titulo {
-    font-size: 14px;
-    padding: 6px 4px;
-  }
-
-  .flecha {
+  
+  .titulo-principal {
     font-size: 24px;
-    padding: 6px 10px;
+    margin: 0 0 5px 0;
+  }
+  
+  .subtitulo {
+    font-size: 16px;
+    margin-top: 5px;
+  }
+  
+  /* Video responsive */
+  .video-intro {
+    height: auto;
+  }
+  
+  .video-cover {
+    height: auto;
+    object-fit: cover;
+  }
+  
+  /* Carrusel de marcas */
+  .slide-track img {
+    height: 30px;
+    margin: 0 20px;
+  }
+  
+  /* Carrusel principal */
+  .catalogo-carrusel {
+    margin: 20px auto;
+    overflow: hidden;
+    padding: 0 40px;
+  }
+  
+  .carrusel {
+    width: 100%;
+    padding: 0;
+  }
+  
+  .carrusel-inner {
+    gap: 5px;
+    padding: 5px 0;
+  }
+  
+  .slide {
+    min-width: 70vw;
+    height: 40vh;
+    transform: scale(0.85);
+  }
+  
+  .slide.active {
+    transform: scale(1);
+  }
+  
+  .titulo {
+    font-size: 12px;
+    padding: 8px 3px;
+  }
+  
+  /* Flechas */
+  .flecha {
+    font-size: 20px;
+    padding: 5px 8px;
+    border-radius: 5px;
+  }
+  
+  .flecha.izq {
+    left: 5px;
+  }
+  
+  .flecha.der {
+    right: 5px;
+  }
+  
+  /* Contacto */
+  .contacto {
+    padding: 20px 10px;
+    font-size: 14px;
+  }
+  
+  .contacto h2 {
+    font-size: 20px;
+    margin-top: 0;
+  }
+  
+  /* Footer */
+  footer {
+    padding: 10px;
+    font-size: 12px;
+  }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .slide {
+    height: 35vh;
+  }
+  
+  .titulo-principal {
+    font-size: 20px;
+  }
+  
+  .subtitulo {
+    font-size: 14px;
+  }
+  
+  .catalogo-carrusel {
+    padding: 0 30px;
   }
 }
