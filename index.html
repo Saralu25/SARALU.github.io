@@ -33,192 +33,285 @@
 </head>
 <body>
 
-  <!-- 2) Video full screen debajo del header -->
-  <section class="video-intro">
-    <video id="videoPerfume" class="video-cover" controls autoplay muted loop playsinline>
-      <source src="video/intro.mp4" type="video/mp4">
-      Tu navegador no admite video HTML5.
-    </video>
-  </section>
+<!-- 2) Video full screen debajo del header -->
+<section class="video-intro">
+  <video id="videoPerfume" class="video-cover" autoplay muted loop playsinline>
+    <source src="video/intro.mp4" type="video/mp4">
+    Tu navegador no admite video HTML5.
+  </video>
+</section>
 
-  <script>
-    const video = document.getElementById("videoPerfume");
+<script>
+  const video = document.getElementById("videoPerfume");
 
-    video.addEventListener("loadedmetadata", () => {
-      video.muted = true;           // Activar sonido  ***true = sin sonido  - false consonido """
-      video.volume = 0.1;            // Volumen al 10%
-      video.play().catch((err) => {
-        console.warn("Reproducción automática bloqueada:", err);
-      });
+  video.addEventListener("loadedmetadata", () => {
+    video.muted = true;
+    video.volume = 0.1;
+    video.play().catch((err) => {
+      console.warn("Reproducción automática bloqueada:", err);
     });
-  </script>
+  });
+</script>
 
-  <!-- 1) Logo y títulos -->
-  <header>
-    <div class="encabezado">
-      <img src="img/logo.png" alt="Logo SaraLU" class="logo" />
-      <h1 class="titulo-principal">REPRESENTACIONES - SARALU</h1>
-      <h2 class="subtitulo">Catálogo Virtual de Perfumes</h2>
-    </div>
-  </header>
+<!-- 1) Logo y títulos -->
+<header>
+  <div class="encabezado">
+    <img src="img/logo.png" alt="Logo SaraLU" class="logo" />
+    <h1 class="titulo-principal">REPRESENTACIONES - SARALU</h1>
+    <h2 class="subtitulo">Catálogo Virtual de Perfumes</h2>
+  </div>
+</header>
 
-  <!-- 3) Carrusel / riel de marcas -->
-  <section class="slider">
-    <div class="slide-track">
-      <img src="img/chanel.png" alt="Chanel" />
-      <img src="img/dior.png" alt="Dior" />
-      <img src="img/dulce_gabbana.png" alt="D&G" />
-      <img src="img/armani.png" alt="Armani" />
-      <img src="img/chanel.png" alt="Chanel" />
-      <img src="img/dior.png" alt="Dior" />
-      <img src="img/armani.png" alt="Armani" />
-      <img src="img/dulce_gabbana.png" alt="D&G" />
-      <img src="img/chanel.png" alt="Chanel" />
-      <img src="img/dior.png" alt="Dior" />
-      <img src="img/dulce_gabbana.png" alt="D&G" />
-      <img src="img/armani.png" alt="Armani" />
-      <img src="img/chanel.png" alt="Chanel" />
-      <img src="img/dior.png" alt="Dior" />
-      <img src="img/armani.png" alt="Armani" />
-      <img src="img/dulce_gabbana.png" alt="D&G" />
-    </div>
-  </section>
+<!-- 3) Carrusel / riel de marcas -->
+<section class="slider">
+  <div class="slide-track">
+    <img src="img/chanel.png" alt="Chanel" />
+    <img src="img/dior.png" alt="Dior" />
+    <img src="img/dulce_gabbana.png" alt="D&G" />
+    <img src="img/armani.png" alt="Armani" />
+    <img src="img/chanel.png" alt="Chanel" />
+    <img src="img/dior.png" alt="Dior" />
+    <img src="img/armani.png" alt="Armani" />
+    <img src="img/dulce_gabbana.png" alt="D&G" />
+    <img src="img/chanel.png" alt="Chanel" />
+    <img src="img/dior.png" alt="Dior" />
+    <img src="img/dulce_gabbana.png" alt="D&G" />
+    <img src="img/armani.png" alt="Armani" />
+    <img src="img/chanel.png" alt="Chanel" />
+    <img src="img/dior.png" alt="Dior" />
+    <img src="img/armani.png" alt="Armani" />
+    <img src="img/dulce_gabbana.png" alt="D&G" />
+  </div>
+</section>
 
-  <!-- Carrusel interactivo con realce al centro -->
-  <section class="catalogo-carrusel">
-    <button class="flecha izq">&#10094;</button>
+<!-- Carrusel interactivo con realce al centro -->
+<section class="catalogo-carrusel">
+  <button class="flecha izq">&#10094;</button>
 
-    <div class="carrusel">
-      <div class="carrusel-inner">
-        <div class="slide active">
-          <div class="imagen-con-titulo">
-            <img src="img/page1.jpg" alt="Página 1">
-            <div class="titulo">PERFUMES DE DISEÑADOR</div>
-          </div>
+  <div class="carrusel">
+    <div class="carrusel-inner">
+      <div class="slide active">
+        <div class="imagen-con-titulo">
+          <img src="img/page1.jpg" alt="Página 1">
+          <div class="titulo">PERFUMES DE DISEÑADOR</div>
         </div>
-        <div class="slide">
-          <div class="imagen-con-titulo">
-            <img src="img/page2.jpg" alt="Página 2">
-            <div class="titulo">ÁRABE Y EDICIÓN ESPECIAL</div>
-          </div>
+      </div>
+      <div class="slide">
+        <div class="imagen-con-titulo">
+          <img src="img/page2.jpg" alt="Página 2">
+          <div class="titulo">ÁRABE Y EDICIÓN ESPECIAL</div>
         </div>
-        <div class="slide">
-          <div class="imagen-con-titulo">
-            <img src="img/page3.jpg" alt="Página 3">
-            <div class="titulo">PERFUMES NICHO</div>
-          </div>
+      </div>
+      <div class="slide">
+        <div class="imagen-con-titulo">
+          <img src="img/page3.jpg" alt="Página 3">
+          <div class="titulo">PERFUMES NICHO</div>
         </div>
-        <div class="slide">
-          <div class="imagen-con-titulo">
-            <img src="img/page4.jpg" alt="Página 4">
-            <div class="titulo">UNISEX EXCLUSIVO</div>
-          </div>
+      </div>
+      <div class="slide">
+        <div class="imagen-con-titulo">
+          <img src="img/page4.jpg" alt="Página 4">
+          <div class="titulo">UNISEX EXCLUSIVO</div>
         </div>
-        <div class="slide">
-          <div class="imagen-con-titulo">
-            <img src="img/page5.jpg" alt="Página 5">
-            <div class="titulo">EDICIÓN LIMITADA</div>
-          </div>
-        </div>
-        <div class="slide">
-          <div class="imagen-con-titulo">
-            <img src="img/page1.jpg" alt="Página 1">
-            <div class="titulo">PERFUMES DE DISEÑADOR</div>
-          </div>
+      </div>
+      <div class="slide">
+        <div class="imagen-con-titulo">
+          <img src="img/page5.jpg" alt="Página 5">
+          <div class="titulo">EDICIÓN LIMITADA</div>
         </div>
       </div>
     </div>
+  </div>
 
-    <button class="flecha der">&#10095;</button>
-  </section>
+  <button class="flecha der">&#10095;</button>
+</section>
 
-  <!-- 5) Contacto -->
-  <section class="contacto">
-    <h2>Contáctanos</h2>
-    
-    <p>
-      <strong>¿Quieres saber más?</strong><br>
-      <a href="https://wa.me/573232442120" target="_blank">
-        💬 Estas a un clic - Escríbenos por WhatsApp 
-      </a> y descubre nuestras fragancias exclusivas.
-    </p>
+<!-- 5) Contacto -->
+<section class="contacto">
+  <h2>Contáctanos</h2>
+  
+  <p>
+    <strong>¿Quieres saber más?</strong><br>
+    <a href="https://wa.me/573232442120" target="_blank">
+      💬 Estas a un clic - Escríbenos por WhatsApp 
+    </a> y descubre nuestras fragancias exclusivas.
+  </p>
 
-    <p><strong>Correo:</strong> contacto@ejemplo.com</p>
-    
-    <p><strong>Redes:</strong>
-      <a href="https://facebook.com/tuempresa" target="_blank">Facebook</a> ·
-      <a href="https://instagram.com/tuempresa" target="_blank">Instagram</a> ·
-      <a href="https://www.tiktok.com/@tuempresa" target="_blank">TikTok</a>
-    </p>
-  </section>
+  <p><strong>Correo:</strong> contacto@ejemplo.com</p>
+  
+  <p><strong>Redes:</strong>
+    <a href="https://facebook.com/tuempresa" target="_blank">Facebook</a> ·
+    <a href="https://instagram.com/tuempresa" target="_blank">Instagram</a> ·
+    <a href="https://www.tiktok.com/@tuempresa" target="_blank">TikTok</a>
+  </p>
+</section>
 
-  <footer>
-    <p>&copy; 2025 Representaciones SaraLU</p>
-  </footer>
+<footer>
+  <p>&copy; 2025 Representaciones SaraLU</p>
+</footer>
 
-  <script>
+<script>
+  // Script para el carrusel de catálogos - CARRUSEL INFINITO CON REALCE
+  document.addEventListener('DOMContentLoaded', function() {
     const slides = document.querySelectorAll(".slide");
     const inner = document.querySelector(".carrusel-inner");
-    let activeIndex = Math.floor(slides.length / 2);
-
-    function updateCarrusel() {
-      slides.forEach((slide, i) => {
-        slide.classList.remove("active");
-      });
-
-      if (slides[activeIndex]) {
-        slides[activeIndex].classList.add("active");
-      }
-
-      const slideWidth = slides[0].offsetWidth + 20; // margen incluido
-      const offset = slideWidth * (activeIndex - 1); // centrar activo
+    const flechaIzq = document.querySelector(".flecha.izq");
+    const flechaDer = document.querySelector(".flecha.der");
+    
+    if (!slides.length || !inner) return;
+    
+    // Crear clones para efecto infinito
+    const firstClone = slides[0].cloneNode(true);
+    const lastClone = slides[slides.length - 1].cloneNode(true);
+    
+    inner.appendChild(firstClone);
+    inner.insertBefore(lastClone, slides[0]);
+    
+    const newSlides = document.querySelectorAll(".slide");
+    let currentIndex = 1; // Comenzamos en el primer slide original
+    let isTransitioning = false;
+    
+    // Posicionar inicialmente en el primer slide real
+    function initializePosition() {
+      const slideWidth = newSlides[0].offsetWidth;
+      const gap = parseInt(getComputedStyle(inner).gap) || 20;
+      const totalSlideWidth = slideWidth + gap;
+      const offset = totalSlideWidth * currentIndex;
       inner.style.transform = `translateX(-${offset}px)`;
     }
-
+    
+    function updateCarrusel(instant = false) {
+      if (instant) {
+        inner.style.transition = 'none';
+      } else {
+        inner.style.transition = 'transform 0.5s ease';
+      }
+      
+      const slideWidth = newSlides[0].offsetWidth;
+      const gap = parseInt(getComputedStyle(inner).gap) || 20;
+      const totalSlideWidth = slideWidth + gap;
+      const offset = totalSlideWidth * currentIndex;
+      inner.style.transform = `translateX(-${offset}px)`;
+      
+      // Actualizar clase active
+      newSlides.forEach((slide, i) => {
+        slide.classList.remove("active");
+      });
+      
+      // Ajustar índice para slides originales
+      let activeIndex = currentIndex;
+      if (currentIndex === 0) {
+        activeIndex = slides.length; // Último slide original
+      } else if (currentIndex === newSlides.length - 1) {
+        activeIndex = 1; // Primer slide original
+      }
+      
+      if (newSlides[activeIndex]) {
+        newSlides[activeIndex].classList.add("active");
+      }
+      
+      // Manejar transición infinita
+      if (instant) {
+        setTimeout(() => {
+          inner.style.transition = 'transform 0.5s ease';
+        }, 50);
+      }
+    }
+    
     function avanzar() {
-      activeIndex++;
-      if (activeIndex >= slides.length) {
-        activeIndex = 0;
-      }
+      if (isTransitioning) return;
+      isTransitioning = true;
+      
+      currentIndex++;
       updateCarrusel();
+      
+      // Verificar si necesitamos saltar al inicio (efecto infinito)
+      setTimeout(() => {
+        if (currentIndex === newSlides.length - 1) {
+          currentIndex = 1;
+          updateCarrusel(true);
+        }
+        isTransitioning = false;
+      }, 500);
     }
-
+    
     function retroceder() {
-      activeIndex--;
-      if (activeIndex < 0) {
-        activeIndex = slides.length - 1;
-      }
+      if (isTransitioning) return;
+      isTransitioning = true;
+      
+      currentIndex--;
       updateCarrusel();
+      
+      // Verificar si necesitamos saltar al final (efecto infinito)
+      setTimeout(() => {
+        if (currentIndex === 0) {
+          currentIndex = newSlides.length - 2;
+          updateCarrusel(true);
+        }
+        isTransitioning = false;
+      }, 500);
     }
-
-    document.querySelector(".flecha.der").addEventListener("click", avanzar);
-    document.querySelector(".flecha.izq").addEventListener("click", retroceder);
-
-    // Soporte táctil
+    
+    // Event listeners para las flechas
+    if (flechaDer) {
+      flechaDer.addEventListener("click", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        avanzar();
+      });
+    }
+    
+    if (flechaIzq) {
+      flechaIzq.addEventListener("click", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        retroceder();
+      });
+    }
+    
+    // Soporte táctil mejorado
     let touchStartX = 0;
     let touchEndX = 0;
-
-    inner.addEventListener("touchstart", (e) => {
-      touchStartX = e.touches[0].clientX;
-    });
-
-    inner.addEventListener("touchmove", (e) => {
-      touchEndX = e.touches[0].clientX;
-    });
-
-    inner.addEventListener("touchend", () => {
-      const diff = touchStartX - touchEndX;
-      if (Math.abs(diff) > 50) {
-        if (diff > 0) {
-          avanzar();
-        } else {
-          retroceder();
+    let touchStartTime = 0;
+    
+    if (inner) {
+      inner.addEventListener("touchstart", (e) => {
+        touchStartX = e.touches[0].clientX;
+        touchStartTime = new Date().getTime();
+      });
+    
+      inner.addEventListener("touchmove", (e) => {
+        touchEndX = e.touches[0].clientX;
+      });
+    
+      inner.addEventListener("touchend", () => {
+        const diff = touchStartX - touchEndX;
+        const touchTime = new Date().getTime() - touchStartTime;
+        
+        // Solo swipe si el movimiento es significativo y rápido
+        if (Math.abs(diff) > 50 && touchTime < 300) {
+          if (diff > 0) {
+            avanzar();
+          } else {
+            retroceder();
+          }
         }
-      }
+      });
+    }
+    
+    // Inicializar y actualizar en resize
+    setTimeout(() => {
+      initializePosition();
+      updateCarrusel(true);
+    }, 100);
+    
+    window.addEventListener("resize", function() {
+      setTimeout(() => {
+        initializePosition();
+      }, 100);
     });
+  });
+</script>
 
-    window.addEventListener("load", updateCarrusel);
-    window.addEventListener("resize", updateCarrusel);
-  </script>
 </body>
 </html>
