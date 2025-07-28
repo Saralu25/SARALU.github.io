@@ -1,0 +1,284 @@
+/* Estilo base */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden; /* 🔒 evita el scroll horizontal */
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #111;
+}
+
+/* 1) Header: logo y títulos */
+header {
+  background: #f5f5f5;
+  padding: 50px 20px 30px;
+  text-align: center;
+}
+
+.encabezado {
+  margin-top: 10px;
+}
+
+.logo {
+  height: 250px;
+  margin-bottom: 20px;
+  border-radius: 16px;
+  animation: combinedMotion 3.5s ease-in-out infinite;
+}
+
+
+
+/* Animación personalizada */
+@keyframes combinedMotion {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0) scale(0.95);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.05);
+  }
+  70% {
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
+}
+
+
+
+.titulo-principal {
+  font-style: italic;
+  color: #d4af37; /* dorado */
+  font-size: 36px;
+  margin: 0;
+}
+
+.subtitulo {
+  font-size: 20px;
+  margin-top: 10px;
+  color: #333;
+}
+
+
+@media (max-width: 768px) {
+  .logo {
+    height: 80px;
+  }
+
+  .titulo-principal {
+    font-size: 24px;
+  }
+
+  .subtitulo {
+    font-size: 16px;
+  }
+
+  .slide-track img {
+    margin: 0 30px;
+    height: 40px;
+  }
+
+  .contacto {
+    padding: 20px 10px;
+  }
+}
+
+/* 2) Video full screen */
+.video-intro {
+  position: relative;
+  width: 100%;
+  height: 100vh;        /* ocupa toda la pantalla */
+  overflow: hidden;
+  background: #000;
+}
+
+.video-intro .video-cover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+}
+
+
+
+
+/* 3) Carrusel / riel */
+.slider {
+  overflow: hidden;
+  background: #fff;
+  padding: 20px 0;
+}
+
+.slide-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 10s linear infinite;
+  align-items: center;
+}
+
+.slide-track img {
+  height: 60px;
+  width: auto;
+  margin: 0 70px;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* 4) Catálogo tipo libro (Turn.js) */
+
+.catalogo-carrusel {
+  position: relative;
+}
+
+.catalogo-carrusel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible; /* <-- antes era hidden */
+  max-width: 1000px;
+  margin: 40px auto;
+  position: relative;
+}
+
+.carrusel {
+  overflow: visible;  /* <-- importante para que el realce no corte */
+  width: 90%;
+}
+
+.carrusel-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 20px;
+}
+
+.slide {
+  min-width: 300px;
+  height: 420px;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  transform: scale(0.9);
+  opacity: 0.5;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  z-index: 1;
+}
+
+.slide.active {
+  transform: scale(1.1);
+  opacity: 1;
+  z-index: 2;  /* Asegura que la imagen activa esté encima */
+}
+
+.imagen-con-titulo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.imagen-con-titulo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.titulo {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(100, 100, 100, 0.7); /* gris más oscuro para mejor contraste */
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px 5px;
+  box-sizing: border-box;
+}
+
+
+#flipbook .page {
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,.15);
+}
+
+#flipbook .page img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 5) Contacto y footer */
+.contacto {
+  text-align: center;
+  padding: 30px 15px;
+  background: #f5f5f5;
+}
+
+.contacto a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+}
+
+.flecha {
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  font-size: 30px;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+.flecha:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+
+
+.flecha.izq {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.flecha.der {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}

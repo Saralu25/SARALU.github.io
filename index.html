@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Catálogo Virtual de Perfumes</title>
+
+  <link rel="stylesheet" href="estilos.css" />
+
+  <!-- jQuery requerido por Turn.js -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <!-- Turn.js -->
+  <script src="https://cdn.jsdelivr.net/gh/blasten/turn.js@4/turn.min.js"></script>
+
+  <script>
+    function setFlipbookSize() {
+      const w = Math.min(1000, window.innerWidth * 0.9);
+      const h = Math.round(w * 0.625); // proporción 16:10 aprox (ajusta si quieres)
+      $("#flipbook").turn("size", w, h);
+    }
+
+    $(document).ready(function () {
+      $("#flipbook").turn({
+        width: 800,
+        height: 500,
+        autoCenter: true
+      });
+
+      setFlipbookSize();
+      $(window).on('resize', setFlipbookSize);
+    });
+  </script>
+</head>
+<body>
+
+  <!-- 2) Video full screen debajo del header -->
+<section class="video-intro">
+  <video id="videoPerfume" class="video-cover" controls autoplay muted loop playsinline>
+    <source src="video/intro.mp4" type="video/mp4">
+    Tu navegador no admite video HTML5.
+  </video>
+</section>
+
+<script>
+  const video = document.getElementById("videoPerfume");
+
+  video.addEventListener("loadedmetadata", () => {
+    video.muted = true;           // Activar sonido  ***true = sin sonido  - false consonido """
+    video.volume = 0.1;            // Volumen al 10%
+    video.play().catch((err) => {
+      console.warn("Reproducción automática bloqueada:", err);
+    });
+  });
+</script>
+
+
+  <!-- 1) Logo y títulos -->
+  <header>
+    <div class="encabezado">
+      <img src="img/logo.png" alt="Logo SaraLU" class="logo" />
+      <h1 class="titulo-principal">REPRESENTACIONES - SARALU</h1>
+      <h2 class="subtitulo">Catálogo Virtual de Perfumes</h2>
+    </div>
+  </header>
+
+  <!-- 3) Carrusel / riel de marcas -->
+  <section class="slider">
+    <div class="slide-track">
+      <img src="img/chanel.png" alt="Chanel" />
+      <img src="img/dior.png" alt="Dior" />
+      <img src="img/dulce_gabbana.png" alt="D&G" />
+      <img src="img/armani.png" alt="Armani" />
+      <img src="img/chanel.png" alt="Chanel" />
+      <img src="img/dior.png" alt="Dior" />
+      <img src="img/armani.png" alt="Armani" />
+      <img src="img/dulce_gabbana.png" alt="D&G" />
+      <img src="img/chanel.png" alt="Chanel" />
+      <img src="img/dior.png" alt="Dior" />
+      <img src="img/dulce_gabbana.png" alt="D&G" />
+      <img src="img/armani.png" alt="Armani" />
+      <img src="img/chanel.png" alt="Chanel" />
+      <img src="img/dior.png" alt="Dior" />
+      <img src="img/armani.png" alt="Armani" />
+      <img src="img/dulce_gabbana.png" alt="D&G" />
+    </div>
+  </section>
+
+<!-- Carrusel interactivo con realce al centro -->
+<section class="catalogo-carrusel">
+  <button class="flecha izq">&#10094;</button>
+
+  <div class="carrusel">
+    <div class="carrusel-inner">
+      <div class="slide active">
+        <div class="imagen-con-titulo">
+          <img src="img/page1.jpg" alt="Página 1">
+          <div class="titulo">PERFUMES DE DISEÑADOR</div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="imagen-con-titulo">
+          <img src="img/page2.jpg" alt="Página 2">
+          <div class="titulo">ÁRABE Y EDICIÓN ESPECIAL</div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="imagen-con-titulo">
+          <img src="img/page3.jpg" alt="Página 3">
+          <div class="titulo">PERFUMES NICHO</div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="imagen-con-titulo">
+          <img src="img/page4.jpg" alt="Página 4">
+          <div class="titulo">UNISEX EXCLUSIVO</div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="imagen-con-titulo">
+          <img src="img/page5.jpg" alt="Página 5">
+          <div class="titulo">EDICIÓN LIMITADA</div>
+        </div>
+      </div>
+
+      
+      <div class="slide active">
+        <div class="imagen-con-titulo">
+          <img src="img/page1.jpg" alt="Página 1">
+          <div class="titulo">PERFUMES DE DISEÑADOR</div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <button class="flecha der">&#10095;</button>
+</section>
+
+
+
+  <!-- 5) Contacto -->
+<section class="contacto">
+  <h2>Contáctanos</h2>
+  
+  <p>
+    <strong>¿Quieres saber más?</strong><br>
+    <a href="https://wa.me/573232442120" target="_blank">
+      💬 Estas a un clic -  Escríbenos por WhatsApp 
+    </a> y descubre nuestras fragancias exclusivas.
+  </p>
+
+  <p><strong>Correo:</strong> contacto@ejemplo.com</p>
+  
+  <p><strong>Redes:</strong>
+    <a href="https://facebook.com/tuempresa" target="_blank">Facebook</a> ·
+    <a href="https://instagram.com/tuempresa" target="_blank">Instagram</a> ·
+    <a href="https://www.tiktok.com/@tuempresa" target="_blank">TikTok</a>
+  </p>
+</section>
+
+
+  <footer>
+    <p>&copy; 2025 Representaciones SaraLU</p>
+  </footer>
+
+</body>
+
+<script>
+  const slides = document.querySelectorAll(".slide");
+const inner = document.querySelector(".carrusel-inner");
+let activeIndex = Math.floor(slides.length / 2);
+
+function updateCarrusel() {
+  slides.forEach((slide, i) => {
+    slide.classList.remove("active");
+  });
+
+  if (slides[activeIndex]) {
+    slides[activeIndex].classList.add("active");
+  }
+
+  const slideWidth = slides[0].offsetWidth + 20; // margen incluido
+  const offset = slideWidth * (activeIndex - 1); // centrar activo
+  inner.style.transform = `translateX(-${offset}px)`;
+}
+
+function avanzar() {
+  activeIndex++;
+  if (activeIndex >= slides.length) {
+    activeIndex = 0;
+  }
+  updateCarrusel();
+}
+
+function retroceder() {
+  activeIndex--;
+  if (activeIndex < 0) {
+    activeIndex = slides.length - 1;
+  }
+  updateCarrusel();
+}
+
+document.querySelector(".flecha.der").addEventListener("click", avanzar);
+document.querySelector(".flecha.izq").addEventListener("click", retroceder);
+
+// Soporte táctil
+let touchStartX = 0;
+let touchEndX = 0;
+
+inner.addEventListener("touchstart", (e) => {
+  touchStartX = e.touches[0].clientX;
+});
+
+inner.addEventListener("touchmove", (e) => {
+  touchEndX = e.touches[0].clientX;
+});
+
+inner.addEventListener("touchend", () => {
+  const diff = touchStartX - touchEndX;
+  if (Math.abs(diff) > 50) {
+    if (diff > 0) {
+      avanzar();
+    } else {
+      retroceder();
+    }
+  }
+});
+
+window.addEventListener("load", updateCarrusel);
+
+
+</script>
+
+
+
+</html>
